@@ -23,9 +23,8 @@ namespace SudokuSample
                 if(c is TextBox && c.Name.StartsWith("Block"))
                 {
                     TextBox tb = (TextBox) c;
-                    tb.MaxLength = 1;
                     tb.KeyPress += GeneralBlock_KeyPress;
-
+                    tb.MaxLength = 1;
                 }
             }
         }
