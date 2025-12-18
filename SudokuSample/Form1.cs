@@ -14,10 +14,20 @@ namespace SudokuSample
         {
             InitializeComponent();
         }
+        int[,] sudokuBoard = new int[4, 4];
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            foreach(Control c in tableLayoutPanel1.Controls)
+            {
+                if(c is TextBox && c.Name.StartsWith("Block"))
+                {
+                    TextBox tb = (TextBox) c;
+                    tb.MaxLength = 1;
+                    tb.KeyPress += GeneralBlock_KeyPress;
+
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,7 +40,7 @@ namespace SudokuSample
 
         }
 
-        private void Block1Box1_KeyPress(object sender, KeyPressEventArgs e)
+        private void GeneralBlock_KeyPress(object? sender, KeyPressEventArgs e)
         {
             // Delete number is allowed
             if (char.IsControl(e.KeyChar))
@@ -44,14 +54,6 @@ namespace SudokuSample
                 e.Handled = true;
                 //I already handled don't write in the textBox.
             }
-            
-            //If there is a number in the box then you cannot add new number in the same box.
-            //I can do with maxLength property=1
-            if (Block1Box1.Text.Length > 0)
-            {
-                e.Handled = true;
-            }
-            
         }
     }
 }
