@@ -25,7 +25,6 @@
             Block1Box3 = new TextBox();
             Block1Box4 = new TextBox();
             Block2Box3 = new TextBox();
-            Block2Box4 = new TextBox();
             Block3Box1 = new TextBox();
             Block3Box2 = new TextBox();
             Block4Box1 = new TextBox();
@@ -34,6 +33,7 @@
             Block3Box4 = new TextBox();
             Block4Box3 = new TextBox();
             Block4Box4 = new TextBox();
+            Block2Box4 = new TextBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -54,7 +54,6 @@
             tableLayoutPanel1.Controls.Add(Block1Box3, 0, 1);
             tableLayoutPanel1.Controls.Add(Block1Box4, 1, 1);
             tableLayoutPanel1.Controls.Add(Block2Box3, 2, 1);
-            tableLayoutPanel1.Controls.Add(Block2Box4, 3, 1);
             tableLayoutPanel1.Controls.Add(Block3Box1, 0, 2);
             tableLayoutPanel1.Controls.Add(Block3Box2, 1, 2);
             tableLayoutPanel1.Controls.Add(Block4Box1, 2, 2);
@@ -63,6 +62,7 @@
             tableLayoutPanel1.Controls.Add(Block3Box4, 1, 3);
             tableLayoutPanel1.Controls.Add(Block4Box3, 2, 3);
             tableLayoutPanel1.Controls.Add(Block4Box4, 3, 3);
+            tableLayoutPanel1.Controls.Add(Block2Box4, 3, 1);
             tableLayoutPanel1.Location = new Point(358, 113);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -75,16 +75,19 @@
             // 
             // Block1Box1
             // 
+            Block1Box1.BackColor = SystemColors.Window;
             Block1Box1.Location = new Point(3, 3);
             Block1Box1.Name = "Block1Box1";
             Block1Box1.Size = new Size(66, 27);
             Block1Box1.TabIndex = 0;
             Block1Box1.Text = "1";
             Block1Box1.TextAlign = HorizontalAlignment.Center;
+            Block1Box1.TextChanged += Block1Box1_TextChanged_1;
             Block1Box1.KeyPress += GeneralBlock_KeyPress;
             // 
             // Block1Box2
             // 
+            Block1Box2.BackColor = SystemColors.Window;
             Block1Box2.Location = new Point(75, 3);
             Block1Box2.Name = "Block1Box2";
             Block1Box2.Size = new Size(66, 27);
@@ -92,6 +95,7 @@
             // 
             // Block2Box1
             // 
+            Block2Box1.BackColor = SystemColors.Window;
             Block2Box1.Location = new Point(147, 3);
             Block2Box1.Name = "Block2Box1";
             Block2Box1.Size = new Size(66, 27);
@@ -101,6 +105,7 @@
             // 
             // Block2Box2
             // 
+            Block2Box2.BackColor = SystemColors.Window;
             Block2Box2.Location = new Point(219, 3);
             Block2Box2.Name = "Block2Box2";
             Block2Box2.Size = new Size(66, 27);
@@ -122,22 +127,15 @@
             // 
             // Block2Box3
             // 
+            Block2Box3.BackColor = SystemColors.Window;
             Block2Box3.Location = new Point(147, 47);
             Block2Box3.Name = "Block2Box3";
             Block2Box3.Size = new Size(66, 27);
             Block2Box3.TabIndex = 6;
             // 
-            // Block2Box4
-            // 
-            Block2Box4.Location = new Point(219, 47);
-            Block2Box4.Name = "Block2Box4";
-            Block2Box4.Size = new Size(66, 27);
-            Block2Box4.TabIndex = 7;
-            Block2Box4.Text = "2";
-            Block2Box4.TextAlign = HorizontalAlignment.Center;
-            // 
             // Block3Box1
             // 
+            Block3Box1.BackColor = SystemColors.Window;
             Block3Box1.Location = new Point(3, 91);
             Block3Box1.Name = "Block3Box1";
             Block3Box1.Size = new Size(66, 27);
@@ -147,6 +145,7 @@
             // 
             // Block3Box2
             // 
+            Block3Box2.BackColor = SystemColors.Window;
             Block3Box2.Location = new Point(75, 91);
             Block3Box2.Name = "Block3Box2";
             Block3Box2.Size = new Size(66, 27);
@@ -168,6 +167,7 @@
             // 
             // Block3Box3
             // 
+            Block3Box3.BackColor = SystemColors.Window;
             Block3Box3.Location = new Point(3, 135);
             Block3Box3.Name = "Block3Box3";
             Block3Box3.Size = new Size(66, 27);
@@ -175,6 +175,7 @@
             // 
             // Block3Box4
             // 
+            Block3Box4.BackColor = SystemColors.Window;
             Block3Box4.Location = new Point(75, 135);
             Block3Box4.Name = "Block3Box4";
             Block3Box4.Size = new Size(66, 27);
@@ -198,6 +199,16 @@
             Block4Box4.Text = "3";
             Block4Box4.TextAlign = HorizontalAlignment.Center;
             // 
+            // Block2Box4
+            // 
+            Block2Box4.BackColor = SystemColors.Window;
+            Block2Box4.Location = new Point(219, 47);
+            Block2Box4.Name = "Block2Box4";
+            Block2Box4.Size = new Size(66, 27);
+            Block2Box4.TabIndex = 7;
+            Block2Box4.Text = "2";
+            Block2Box4.TextAlign = HorizontalAlignment.Center;
+            // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(255, 255, 128);
@@ -207,6 +218,7 @@
             button1.TabIndex = 1;
             button1.Text = "Check Solution";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // button2
             // 
