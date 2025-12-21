@@ -73,23 +73,24 @@ namespace SudokuSample
                 return false;
             }
 
-            for (int row = 0; row < 4; row++){
+            for (int row = 0; row < 4; row++)
+            {
                 for (int col = 0; col < 4; col++)
                 {
                     numbers.Add(sudokuTable[row, col]);
                 }
                 if (numbers.Count != 4)
                 {
-                    for(int col=0;col<4;col++)
-                    ChangeColorRow(col,row);
+                    for (int col = 0; col < 4; col++)
+                        ChangeColorRow(col, row);
 
                     return false;
 
                 }
                 numbers.Clear();
             }
-            
-            for(int col = 0; col < 4; col++)
+
+            for (int col = 0; col < 4; col++)
             {
                 for (int row = 0; row < 4; row++)
                 {
@@ -97,16 +98,18 @@ namespace SudokuSample
                 }
                 if (numbers.Count != 4)
                 {
+                    for (int row = 0; row < 4; row++)
+                        ChangeColorRow(col, row);
                     return false;
                 }
                 numbers.Clear();
             }
-            
+
             numbers.Add(sudokuTable[0, 0]);
             numbers.Add(sudokuTable[0, 1]);
             numbers.Add(sudokuTable[1, 0]);
             numbers.Add(sudokuTable[1, 1]);
-            if (numbers.Count != 4) 
+            if (numbers.Count != 4)
                 return false;
 
             numbers.Clear();
@@ -140,17 +143,18 @@ namespace SudokuSample
                 return false;
 
             return true;
-            
+
         }
-        private void ChangeColorRow(int col,int row)
+        private void ChangeColorRow(int col, int row)
         {
-            Control c = tableLayoutPanel1.GetControlFromPosition(col,row);
-            if(c is TextBox)
+            Control c = tableLayoutPanel1.GetControlFromPosition(col, row);
+            if (c is TextBox)
             {
                 TextBox tb = (TextBox)c;
                 c.BackColor = Color.LightGray;
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -187,7 +191,26 @@ namespace SudokuSample
         {
             if (IsValidSudokuTable())
             {
+                foreach(Control c in tableLayoutPanel1.Controls)
+                {
+                    if(c is TextBox tb && !tb.ReadOnly)
+                    {
+                        c.BackColor = SystemColors.Window;
+                    }
+                }
                 MessageBox.Show("YOU ACED.");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach(Control c in tableLayoutPanel1.Controls)
+            {
+                if(c is TextBox tb && !tb.ReadOnly)
+                {
+                    tb.Text = string.Empty;
+                    tb.BackColor = SystemColors.Window;
+                }
             }
         }
     }
